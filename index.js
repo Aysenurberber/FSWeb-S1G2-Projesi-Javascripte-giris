@@ -20,8 +20,13 @@ Aşağıdakileri yapın:
    İPUCU: fonksiyon oluşturmaya gerek yok
 */
 
-
-
+let surucuYasi = 20
+if (surucuYasi>18){
+  console.log('true');
+}
+else{
+  console.log('false')
+}
 /*
 Görev 1b - Değerler (puanlamaya dahil değildir)
 
@@ -33,7 +38,12 @@ Aşağıdakileri yapınız:
 
    İPUCU: fonksiyon oluşturmaya gerek yok
 */
-
+let birinciDeger = 8;
+let ikinciDegeri = 12;
+if (birinciDeger<ikinciDegeri){
+  birinciDeger = birinciDeger + 1;
+  console.log (birinciDeger);
+}
 
 
 
@@ -49,7 +59,9 @@ Aşağıdakileri yapın:
    İPUCU: Number metoduna bakabilirsin
 */
 
-
+let deger = "1999";
+let numberOfDeger = Number(deger);
+console.log(numberOfDeger);
 
 
 /*
@@ -61,10 +73,10 @@ Aşağıdakileri yaparak carpma isimli fonksiyonu tamamlayın:
    3. console.log(carpma(7,4)) ile yazdığınız fonsiyonu test edin. Console'da sonucu 28 olarak görmelisiniz.
 */
 
-function carpma(/*buraya kodunu yazabilirsin*/){
-  /*buraya kodunu yazabilirsin*/
+function carpma(a,b){
+  return a*b;
 }
-
+console.log(carpma(10,5))
 
 
 
@@ -77,10 +89,11 @@ Aşağıdakileri yapın:
  3. Hesaplanan köpeğin yaşını dönün.
  */
 
-function kopeginYasi(/*buraya kodunu yazabilirsin*/){
-  /*buraya kodunu yazabilirsin*/
+function kopeginYasi(insanYasi){
+ let kopeginYasi =insanYasi*7;
+ return kopeginYasi;
 }
-
+console.log (kopeginYasi(3));
 
 
 /* Görev 3 */
@@ -96,11 +109,30 @@ Aşağıdakileri oyun isimli fonksiyonu kullanarak yapın.
 
 OYUNUN KURALLARI: Makas Kağıdı yener| Kağıt Taşı yener | Taş Makas'ı yener | veya beraberlik olur.
 */
-
-function oyun(oyuncu, bilgisayar){
-  /*buraya kodunu yazabilirsin*/
+let y= null;
+let x=Math.floor(Math.random()*3);
+if(x==0){
+  y= 'makas';
 }
+else if (x==1){
+  y='tas';
+}else {
+  y='kagit';
+}
+console.log(x);
+console.log(y);
+function oyun(oyuncu,bilgisayar){
+if (oyuncu == bilgisayar){
+  return "beraberlik";
 
+} else if ((oyuncu == 'tas' && bilgisayar =='makas') ||(oyuncu == 'makas' && bilgisayar == 'kagit')
+|| (oyuncu == 'kagit' && bilgisayar =='tas')) {
+  return 'kaybettin';
+} else {
+  return 'kazandin!';
+} 
+}
+console.log (oyun('tas','makas'));
 // Şimdi Taş, Kağıt, Makas oyununu bilgisayara karşı oynayalım!
 /*
 Öncelikle aşağıdakileri yapın:
@@ -127,10 +159,11 @@ Aşağdaki milDonusturucu fonksiyonunu aşağıdakileri kullanarak tamamlayın:
 3. Mil değerini geri dönün
 */
 
-function milDonusturucu(/*buraya kodunu yazabilirsin*/){
-  /*buraya kodunu yazabilirsin*/
+function milDonusturucu(km){
+  let mil = km * 0.621371;
+  return mil;
 }
-
+console.log(milDonusturucu(5));
 
 
 //Görev 4b - Santimetreden Feet
@@ -143,9 +176,11 @@ Aşağıdakileri feetDonusturucu fonsiyonunu kullanarak yapın:
 Google'da arama ipucu: "feet cm dönüştürme"
 */
 
-function feetDonusturucu(/*buraya kodunu yazabilirsin*/){
-  /*buraya kodunu yazabilirsin*/
+function feetDonusturucu(cm){
+  let feet = cm / 30.48;
+  return feet;
 }
+console.log(feetDonusturucu(60));
 
 
 
@@ -162,8 +197,13 @@ Aşağıdakileri cocukSarkisi fonksiyonunda yapın:
 4. Bu döngüde, her seferinde cocukSarkisi fonsiyonu çalışsın ve console.log'a dönen metni yazdırsın.
 */
 
-function cocukSarkisi(/*buraya kodunu yazabilirsin*/){
-      /*buraya kodunu yazabilirsin*/
+function cocukSarkisi(maymunSayisi){
+      return `${maymunSayisi} küçük maymun yatakta zıplamış, biri düşüp başını çarpmış, 
+      Anne doktoru aramış, Doktor çok kızmış: Bir daha yatakta zıplamak yok!`
+
+}
+for(let i=10 ; i>0 ; i--) {
+  console.log(cocukSarkisi(i))
 }
 
 
@@ -181,11 +221,22 @@ Aşağdakileri notHesapla fonksiyonunda yapın.
  daha aşağıda 'F aldın'
  dönün
 */
-
-function notHesapla(/*buraya kodunu yazabilirsin*/){
-/*buraya kodunu yazabilirsin*/
+let not = Math.round(Math.random()*100)
+console.log(`Aldığın not ${not}`);
+function notHesapla(not){
+  if(not < 60){
+    return 'F aldin';
+  } else if( not >= 60 && not < 70){
+    return 'D aldin' ;
+  } else if ( not >= 70 && not < 80){
+    return 'C aldin' ;
+  } else if ( not >= 80 && not < 90){
+    return 'B aldin' ;
+  } else {
+    return 'A aldin' ;
+  }
 }
-
+console.log(notHesapla(not));
 
 
 /* Bonus Çalışma: Sesli harf sayacı - Kaç tane sesli harf var? */
@@ -200,9 +251,6 @@ Aşağıdakileri sesliHarfSayaci fonskiyonunda yapın.
 */
 
 
-function sesliHarfSayaci(/*buraya kodunu yazabilirsin*/) {
-  /*buraya kodunu yazabilirsin*/
-}
 
 
 
